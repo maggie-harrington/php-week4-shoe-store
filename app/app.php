@@ -91,5 +91,12 @@
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
 
+    // edit a store, routes from store page to store edit page
+    $app->get("/stores/{id}/edit", function($id) use ($app) {
+        $store = Store::find($id);
+
+        return $app['twig']->render('store_edit.html.twig', array('store' => $store));
+    });
+
     return $app;
 ?>
