@@ -83,14 +83,6 @@
         return $app['twig']->render('store.html.twig', array('store' => $store, 'brands' => Brand::getAll(), 'carried_brands' => $store->getBrands()));
     });
 
-    // delete a store, starts on store page and routes to stores page
-    $app->delete("/stores/{id}", function($id) use ($app) {
-        $store = Store::find($id);
-        $store->delete();
-
-        return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
-    });
-
     // edit a store, routes from store page to store edit page
     $app->get("/stores/{id}/edit", function($id) use ($app) {
         $store = Store::find($id);
@@ -98,7 +90,7 @@
         return $app['twig']->render('store_edit.html.twig', array('store' => $store));
     });
 
-    // submit edit to a store, routes back to store page from store edit page
+    // submit edit to a store, starts on store edit page and routes back to store page
     $app->patch("/stores/{id}", function($id) use ($app) {
         $store_name = $_POST['store_name'];
         $store = Store::find($id);
@@ -108,4 +100,12 @@
     });
 
     return $app;
+
+    // delete a store, starts on store edit page and routes to stores page
+    $app->delete("/stores/{id}", function($id) use ($app) {
+        $store = Store::find($id);
+        $store->delete();
+
+        return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
+    });
 ?>
