@@ -30,5 +30,19 @@
             $GLOBALS['DB']->exec("INSERT INTO stores (name) VALUES ('{$this->getName()}');");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
+
+        static function getAll()
+        {
+            $returned_stores = $GLOBALS['DB']->query("SELECT * FROM stores");
+            $all_stores_array = array();
+            foreach($returned_stores as $store)
+            {
+                $name = $store['name'];
+                $id = $store['id'];
+                $new_store = new Store($name, $id);
+                array_push($all_stores_array, $new_store);
+            }
+            return $all_stores_array;
+        }
     }
 ?>
