@@ -1,0 +1,37 @@
+{% extends 'template.html.twig' %}
+
+{% block left %}
+    <h1>Brands</h1>
+
+    {% if brands is not empty %}
+        <h5>(Click a brand to view stores which carry the brand or edit info)</h5><br>
+
+        {% for brand in brands %}
+            <h4><a href='/brands/{{ brand.getId }}'>
+                {{ brand.getName }}</a><h4>
+        {% endfor %}
+        <br><br>
+
+        <form action='/brands' method='post'>
+            <input name='_method' value='delete' hidden>
+
+            <button type='submit' class='btn btn-danger'>Delete All Brands</button>
+        </form>
+    {% else %}
+        <h5>No brands entered yet! Please help us out by entering brands -></h5>
+    {% endif %}
+{% endblock %}
+
+{% block right %}
+    <br>
+    <h4>Add a new brand</h4><br>
+
+    <form action='/brands' method='post'>
+        <div class='form-group'>
+            <input required type='text' name='brand_name' class='form-control'
+                placeholder='Enter brand name eg. Nike'>
+        </div><br>
+
+        <button type='submit' class='btn btn-primary'>Submit</button>
+    </form>
+{% endblock %}

@@ -2,6 +2,7 @@
     date_default_timezone_set('America/Los_Angeles');
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Store.php";
+    require_once __DIR__."/../src/Brand.php";
 
     use Symfony\Component\Debug\Debug;
     Debug::enable();
@@ -53,7 +54,7 @@
 
     // from brands page, add a brand, returns to brands page
     $app->post("/brands", function() use ($app) {
-        $brand = new Brand($_POST['name']);
+        $brand = new Brand($_POST['brand_name']);
         $brand->save();
 
         return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
