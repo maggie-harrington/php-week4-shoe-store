@@ -83,6 +83,13 @@
         return $app['twig']->render('store.html.twig', array('store' => $store, 'brands' => Brand::getAll(), 'carried_brands' => $store->getBrands()));
     });
 
-    
+    // delete a store, starts on store page and routes to stores page
+    $app->delete("/stores/{id}", function($id) use ($app) {
+        $store = Store::find($id);
+        $store->delete();
+
+        return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
+    });
+
     return $app;
 ?>
