@@ -75,27 +75,27 @@ Copyright (c) 2017 Maggie Harrington
 
 7. Create index page that allows user to select between viewing a list of all stores or a list of all brands.
 
-7. Create stores page to list all stores, including a form to add new stores.
+8. Create stores page to list all stores, including a form to add new stores and a delete all stores button.
 
-7. Create brands page to list all brands, including a form to add new brands.
+9. Create brands page to list all brands, including a form to add new brands and a delete all brands button.
 
-8. Construct and test methods within Store class to assign a brand to a store (addBrand) and to display all brands assigned to a store (getBrands).
+10. Construct and test methods within Store class to assign a brand to a store (addBrand) and to display all brands assigned to a store (getBrands).
 
-9. Write Silex routes to implement addBrand and getBrands.
+11. Write Silex routes to implement addBrand and getBrands.
 
-10. Create store page to display all brands a particular store carries, including a form to add more brands to a store.
+12. Create store page to display all brands a particular store carries, including a form to add more brands to a store.
 
-11. Add edit and delete buttons to store page, with a new page for the edit form.
+13. Add edit and delete buttons to store page, with a new page for the edit form.
 
-12. Construct and test methods within Brand class to assign a store to a brand (addStore) and to display all stores assigned to a brand (getStores).
+14. Construct and test methods within Brand class to assign a store to a brand (addStore) and to display all stores assigned to a brand (getStores).
 
-13. Write Silex routes to implement addStore and getStores.
+15. Write Silex routes to implement addStore and getStores.
 
-14. Create brand page to display all stores that carry a particular brand, including a form to add more stores to a brand.
+16. Create brand page to display all stores that carry a particular brand, including a form to add more stores to a brand.
 
-15. (Optional) Add edit and delete buttons to brand page, with a new page for the edit form.
+17. (Optional) Add edit and delete buttons to brand page, with a new page for the edit form.
 
-16. Export `shoes` and `shoes_test` databases to include in project folder.
+18. Export `shoes` and `shoes_test` databases to include in project folder.
 
 
 ## MySQL Commands Used

@@ -31,7 +31,7 @@
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
 
-    // add a store, returns to stores page
+    // from stores page, add a store, returns to stores page
     $app->post("/stores", function() use ($app) {
         $store = new Store($_POST['name']);
         $store->save();
@@ -39,11 +39,13 @@
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
 
+    // from stores page, delete all stores, returns to stores page
     $app->delete("/stores", function() use ($app) {
         Store::deleteAll();
 
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
+
 
     return $app;
 ?>
