@@ -30,5 +30,20 @@
             $GLOBALS['DB']->exec("INSERT INTO brands (name) VALUES ('{$this->getName()}');");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
+
+        static function getAll()
+        {
+            $returned_brands = $GLOBALS['DB']->query("SELECT * FROM brands");
+            $all_brands_array = array();
+            foreach($returned_brands as $brand)
+            {
+                $name = $brand['name'];
+                $id = $brand['id'];
+                $new_brand = new Brand($name, $id);
+                array_push($all_brands_array, $new_brand);
+            }
+            return $all_brands_array;
+        }
+
     }
 ?>
