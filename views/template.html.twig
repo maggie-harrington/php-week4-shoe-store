@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <title>Portland Shoe Stores</title>
+    </head>
+    <body>
+        <div class='container'>
+            <div class='jumbotron'>
+                <h1>Portland Shoe Stores<h1>
+            </div><br>
+
+            <div class='col-lg-6 panel panel-body'>
+                {% block left %}
+
+                {% endblock %}
+            </div>
+
+            <div class='col-lg-6 panel panel-body'>
+                {% block right %}
+
+                {% endblock %}
+            </div>
+
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+            <h5><span><a href='/'>Home</a></span> |
+                <span><a href='/stores'>Stores</a></span> |
+                <span><a href='/brands'>Brands</a></h5></span>
+            </h5><br>
+
+            <footer>Created by <a href="https://github.com/maggie-harrington">Maggie Harrington</a></footer>
+        </div>
+    </body>
+</html>
