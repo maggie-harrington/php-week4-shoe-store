@@ -9,5 +9,10 @@
             $this->name = $name;
             $this->id = $id;
         }
+
+        function getName()
+        {
+            return $this->name;
+        }
     }
 ?>
