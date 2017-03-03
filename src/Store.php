@@ -73,5 +73,10 @@
             $GLOBALS['DB']->exec("UPDATE stores SET name = '{$update_name}' WHERE id = {$this->getId()};");
             $this->setName($update_name);
         }
+
+        function addBrand($brand)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO brands_stores (brand_id, store_id) VALUES ({$brand->getId()}, {$this->getId()});");
+        }
     }
 ?>
