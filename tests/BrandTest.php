@@ -18,5 +18,19 @@
             Brand::deleteAll();
         }
 
+        function test_getName()
+        {
+            // Arrange
+            $name = 'Nike';
+            $test_brand = new Brand($name);
+
+            // Act
+            $result = $test_brand->getName();
+
+            // Assert
+            $this->assertEquals($name, $result);
+        }
+
+
     }
 ?>
