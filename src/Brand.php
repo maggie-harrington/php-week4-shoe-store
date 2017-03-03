@@ -50,5 +50,18 @@
             $GLOBALS['DB']->exec("DELETE FROM brands");
         }
 
+        static function find($id_to_find)
+        {
+            $returned_brands = Brand::getAll();
+            foreach ($returned_brands as $returned_brand)
+            {
+                $returned_id = $returned_brand->getId();
+                if ($returned_id == $id_to_find)
+                {
+                    return $returned_brand;
+                }
+            }
+        }
+
     }
 ?>
