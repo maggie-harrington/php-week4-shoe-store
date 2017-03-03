@@ -45,5 +45,10 @@
             return $all_brands_array;
         }
 
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM brands");
+        }
+
     }
 ?>
