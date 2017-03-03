@@ -33,7 +33,7 @@
 
     // from stores page, add a store, returns to stores page
     $app->post("/stores", function() use ($app) {
-        $store = new Store($_POST['name']);
+        $store = new Store($_POST['store_name']);
         $store->save();
 
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
