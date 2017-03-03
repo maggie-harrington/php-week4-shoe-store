@@ -51,6 +51,14 @@
         return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
     });
 
+    // from brands page, add a brand, returns to brands page
+    $app->post("/brands", function() use ($app) {
+        $brand = new Brand($_POST['name']);
+        $brand->save();
+
+        return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
+    });
+
 
     return $app;
 ?>
