@@ -21,9 +21,14 @@
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
 
-    // index, allows user to view list of all stores and submit form to add a store (later will include list of all brands and form to add a brand)
+    // index, allows user to select between viewing a list of all stores or a list of all brands)
     $app->get("/", function() use ($app) {
-        return $app['twig']->render('index.html.twig', array('stores' => Store::getAll()));
+        return $app['twig']->render('index.html.twig');
+    });
+
+    // routes from index to stores page, displays all stores and a form to add a new store
+    $app->get("/stores", function() use ($app) {
+        return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
 
     return $app;
