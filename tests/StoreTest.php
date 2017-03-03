@@ -112,5 +112,24 @@
             $this->assertEquals([], $result);
         }
 
+        function test_find()
+        {
+            // Arrange
+            $name = 'Foot Traffic';
+            $test_store = new Store($name);
+            $test_store->save();
+
+            $name2 = 'Road Runner Sports';
+            $test_store2 = new Store($name2);
+            $test_store2->save();
+
+            // Act
+            $id2 = $test_store2->getId();
+            $result = Store::find($id2);
+
+            // Assert
+            $this->assertEquals([$test_store2], $result);
+        }
+
     }
 ?>
