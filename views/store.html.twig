@@ -1,0 +1,36 @@
+{% extends 'template.html.twig' %}
+
+{% block left %}
+    <h1>Brands carried by {{ store.getName }}</h1><br>
+
+    {% if carried_brands is not empty %}
+        {% for brand in carried_brands %}
+            <h4>{{ brand.getName }}<h4>
+        {% endfor %}
+        <br><br>
+
+    {% else %}
+        <h5>No brands entered yet! Please help us out by associating brands with this store -></h5>
+    {% endif %}
+{% endblock %}
+
+{% block right %}
+    <br>
+    <h4>Add a brand to {{ store.getName }}</h4><br>
+
+    <form action='/stores/{{ store.getId }}' method='post'>
+        <input id='store_id' name='store_id' type='hidden' value='{{ store.getId }}'>
+
+        <div class='form-group'>
+            <label for='brand_id'>Select a brand</label>
+            <select class='' name='brand_id' type='text'>
+                {% for brand in brands %}
+                    <option value="{{ brand.getId }}"> {{ brand.getName }} </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type='submit' class='btn btn-primary'>Add brand</button>
+    </form><br><br>
+
+{% endblock %}
