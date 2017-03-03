@@ -17,5 +17,18 @@
         {
             // Store::deleteAll();
         }
+
+        function test_getName()
+        {
+          // Arrange
+          $name = 'Foot Traffic';
+          $test_store = new Store($name);
+
+          // Act
+          $result = $test_store->getName();
+
+          // Assert
+          $this->assertEquals($name, $result);
+        }
     }
 ?>
