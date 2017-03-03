@@ -46,6 +46,11 @@
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
 
+    // routes from index to brands page, displays all brands and a form to add a new brand
+    $app->get("/brands", function() use ($app) {
+        return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
+    });
+
 
     return $app;
 ?>
