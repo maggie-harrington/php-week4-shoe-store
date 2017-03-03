@@ -73,7 +73,11 @@ Copyright (c) 2017 Maggie Harrington
 
 6. Write Silex routes for Brand methods in app.php after all tests pass.
 
-7. Create index page to list all stores and all brands, including forms to add new stores and new brands.
+7. Create index page that allows user to select between viewing a list of all stores or a list of all brands.
+
+7. Create stores page to list all stores, including a form to add new stores.
+
+7. Create brands page to list all brands, including a form to add new brands.
 
 8. Construct and test methods within Store class to assign a brand to a store (addBrand) and to display all brands assigned to a store (getBrands).
 
