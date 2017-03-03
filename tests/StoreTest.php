@@ -61,6 +61,56 @@
           $this->assertEquals($update_name, $result);
         }
 
+        function test_save()
+        {
+          // Arrange
+          $name = 'Foot Traffic';
+          $test_store = new Store($name);
+
+          // Act
+          $test_store->save();
+          $result = Store::getAll();
+
+          // Assert
+          $this->assertEquals([$test_store], $result);
+        }
+
+        function test_getAll()
+        {
+          // Arrange
+          $name = 'Foot Traffic';
+          $test_store = new Store($name);
+          $test_store->save();
+
+          $name2 = 'Road Runner Sports';
+          $test_store2 = new Store($name2);
+          $test_store2->save();
+
+          // Act
+          $result = Store::getAll();
+
+          // Assert
+          $this->assertEquals([$test_store, $test_store2], $result);
+        }
+
+        function test_deleteAll()
+        {
+            // Arrange
+            $name = 'Foot Traffic';
+            $test_store = new Store($name);
+            $test_store->save();
+
+            $name2 = 'Road Runner Sports';
+            $test_store2 = new Store($name2);
+            $test_store2->save();
+
+            // Act
+            Store::deleteAll();
+            $result = Store::getAll();
+
+            // Assert
+            $this->assertEquals([], $result);
+        }
 
     }
 ?>
