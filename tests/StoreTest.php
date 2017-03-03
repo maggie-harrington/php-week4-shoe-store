@@ -45,6 +45,22 @@
           $this->assertEquals($id, $result);
         }
 
+        function test_setName()
+        {
+          // Arrange
+          $name = 'Foot Traffic';
+          $test_store = new Store($name);
+
+          $update_name = 'Foot Traffic Athletic Shoes';
+
+          // Act
+          $test_store->setName($update_name);
+          $result = $test_store->getName();
+
+          // Assert
+          $this->assertEquals($update_name, $result);
+        }
+
 
     }
 ?>
