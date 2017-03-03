@@ -15,7 +15,7 @@
     {
         protected function tearDown()
         {
-            // Store::deleteAll();
+            Store::deleteAll();
         }
 
         function test_getName()

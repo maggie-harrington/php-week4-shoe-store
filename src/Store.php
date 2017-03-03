@@ -44,5 +44,10 @@
             }
             return $all_stores_array;
         }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stores");
+        }
     }
 ?>
