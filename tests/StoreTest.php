@@ -20,77 +20,77 @@
 
         function test_getName()
         {
-          // Arrange
-          $name = 'Foot Traffic';
-          $test_store = new Store($name);
+            // Arrange
+            $name = 'Foot Traffic';
+            $test_store = new Store($name);
 
-          // Act
-          $result = $test_store->getName();
+            // Act
+            $result = $test_store->getName();
 
-          // Assert
-          $this->assertEquals($name, $result);
+            // Assert
+            $this->assertEquals($name, $result);
         }
 
         function test_getId()
         {
-          // Arrange
-          $name = 'Foot Traffic';
-          $id = 1;
-          $test_store = new Store($name, $id);
+            // Arrange
+            $name = 'Foot Traffic';
+            $id = 1;
+            $test_store = new Store($name, $id);
 
-          // Act
-          $result = $test_store->getId();
+            // Act
+            $result = $test_store->getId();
 
-          // Assert
-          $this->assertEquals($id, $result);
+            // Assert
+            $this->assertEquals($id, $result);
         }
 
         function test_setName()
         {
-          // Arrange
-          $name = 'Foot Traffic';
-          $test_store = new Store($name);
+            // Arrange
+            $name = 'Foot Traffic';
+            $test_store = new Store($name);
 
-          $update_name = 'Foot Traffic Athletic Shoes';
+            $update_name = 'Foot Traffic Athletic Shoes';
 
-          // Act
-          $test_store->setName($update_name);
-          $result = $test_store->getName();
+            // Act
+            $test_store->setName($update_name);
+            $result = $test_store->getName();
 
-          // Assert
-          $this->assertEquals($update_name, $result);
+            // Assert
+            $this->assertEquals($update_name, $result);
         }
 
         function test_save()
         {
-          // Arrange
-          $name = 'Foot Traffic';
-          $test_store = new Store($name);
+            // Arrange
+            $name = 'Foot Traffic';
+            $test_store = new Store($name);
 
-          // Act
-          $test_store->save();
-          $result = Store::getAll();
+            // Act
+            $test_store->save();
+            $result = Store::getAll();
 
-          // Assert
-          $this->assertEquals([$test_store], $result);
+            // Assert
+            $this->assertEquals([$test_store], $result);
         }
 
         function test_getAll()
         {
-          // Arrange
-          $name = 'Foot Traffic';
-          $test_store = new Store($name);
-          $test_store->save();
+            // Arrange
+            $name = 'Foot Traffic';
+            $test_store = new Store($name);
+            $test_store->save();
 
-          $name2 = 'Road Runner Sports';
-          $test_store2 = new Store($name2);
-          $test_store2->save();
+            $name2 = 'Road Runner Sports';
+            $test_store2 = new Store($name2);
+            $test_store2->save();
 
-          // Act
-          $result = Store::getAll();
+            // Act
+            $result = Store::getAll();
 
-          // Assert
-          $this->assertEquals([$test_store, $test_store2], $result);
+            // Assert
+            $this->assertEquals([$test_store, $test_store2], $result);
         }
 
         function test_deleteAll()
