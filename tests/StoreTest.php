@@ -131,5 +131,24 @@
             $this->assertEquals($test_store2, $result);
         }
 
+        function test_delete()
+        {
+            // Arrange
+            $name = 'Foot Traffic';
+            $test_store = new Store($name);
+            $test_store->save();
+
+            $name2 = 'Road Runner Sports';
+            $test_store2 = new Store($name2);
+            $test_store2->save();
+
+            // Act
+            $test_store->delete();
+            $result = Store::getAll();
+
+            // Assert
+            $this->assertEquals([$test_store2], $result);
+        }
+
     }
 ?>
