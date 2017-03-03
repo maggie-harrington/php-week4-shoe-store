@@ -67,8 +67,6 @@
         return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
     });
 
-    // start of routes using join table & join statements
-
     // routes from stores page to store page, displays all brands carried by that store and a form to add more brands to the store
     $app->get("/stores/{id}", function($id) use ($app) {
         $store = Store::find($id);
@@ -76,5 +74,15 @@
         return $app['twig']->render('store.html.twig', array('store' => $store, 'brands' => Brand::getAll(), 'carried_brands' => $store->getBrands()));
     });
 
+    // add a brand to a store, starts on store page and reroutes to same page on submit to allow user to add multiple brands to a store
+    $app->post("/stores/{id}", function($id) use ($app) {
+        $store = Store::find($id);
+        $brand = Brand::find($_POST['brand_id']);
+        $store->addBrand($brand);
+
+        return $app['twig']->render('store.html.twig', array('store' => $store, 'brands' => Brand::getAll(), 'carried_brands' => $store->getBrands()));
+    });
+
+    
     return $app;
 ?>
