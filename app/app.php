@@ -139,5 +139,13 @@
         return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'stores' => Store::getAll(), 'carried_stores' => $brand->getStores()));
     });
 
+    // delete a brand, starts on brand edit page and routes to brands page
+    $app->delete("/brands/{id}", function($id) use ($app) {
+        $brand = Brand::find($id);
+        $brand->delete();
+
+        return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
+    });
+
     return $app;
 ?>
