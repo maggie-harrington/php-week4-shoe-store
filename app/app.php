@@ -114,5 +114,14 @@
         return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'stores' => Store::getAll(), 'carried_stores' => $brand->getStores()));
     });
 
+    // add a store to a brand, starts on brand page and reroutes to same page on submit to allow user to add multiple stores to a brand
+    $app->post("/brands/{id}", function($id) use ($app) {
+        $brand = Brand::find($id);
+        $store = Store::find($_POST['store_id']);
+        $brand->addStore($store);
+
+        return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'stores' => Store::getAll(), 'carried_stores' => $brand->getStores()));
+    });
+
     return $app;
 ?>
