@@ -130,5 +130,14 @@
         return $app['twig']->render('brand_edit.html.twig', array('brand' => $brand));
     });
 
+    // submit edit to a brand, starts on brand edit page and routes back to brand page
+    $app->patch("/brands/{id}", function($id) use ($app) {
+        $brand_name = $_POST['brand_name'];
+        $brand = Brand::find($id);
+        $brand->update($brand_name);
+
+        return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'stores' => Store::getAll(), 'carried_stores' => $brand->getStores()));
+    });
+
     return $app;
 ?>
