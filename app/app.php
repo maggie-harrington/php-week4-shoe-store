@@ -107,5 +107,12 @@
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
 
+    // routes from brands page to brand page, displays all stores that carry a particular brand and a form to add more stores to the brand
+    $app->get("/brands/{id}", function($id) use ($app) {
+        $brand = Brand::find($id);
+
+        return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'stores' => Store::getAll(), 'carried_stores' => $brand->getStores()));
+    });
+
     return $app;
 ?>
