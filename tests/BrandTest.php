@@ -157,7 +157,7 @@
             $test_brand = new Brand($name);
             $test_brand->save();
 
-            $update_name = "Nike, Inc.";
+            $update_name = 'Nike, Inc.';
 
             // Act
             $test_brand->update($update_name);
@@ -166,6 +166,50 @@
             // Assert
             $this->assertEquals($update_name, $result);
         }
+
+        function test_addStore()
+        {
+            // Arrange
+            $brand_name = 'Nike';
+            $test_brand = new Brand($brand_name);
+            $test_brand->save();
+
+            $store_name = 'Road Runner Sports';
+            $test_store = new Store($store_name);
+            $test_store->save();
+
+            // Act
+            $test_brand->addStore($test_store);
+            $result = $test_brand->getStores();
+
+            // Assert
+            $this->assertEquals([$test_store], $result);
+        }
+
+        function test_getStores()
+        {
+            // Arrange
+            $brand_name = "Nike";
+            $test_brand = new Brand($brand_name);
+            $test_brand->save();
+
+            $store_name = 'Foot Traffic';
+            $test_store = new Store($store_name);
+            $test_store->save();
+            $test_brand->addStore($test_store);
+
+            $store_name2 = 'Road Runner Sports';
+            $test_store2 = new Store($store_name2);
+            $test_store2->save();
+            $test_brand->addStore($test_store2);
+
+            // Act
+            $result = $test_brand->getStores();
+
+            // Assert
+            $this->assertEquals([$test_store, $test_store2], $result);
+        }
+
 
 
     }
