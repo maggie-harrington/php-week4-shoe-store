@@ -85,7 +85,7 @@ Copyright (c) 2017 Maggie Harrington
 
 12. Create store page to display all brands a particular store carries, including a form to add more brands to a store.
 
-13. Add edit and delete buttons to store page, with a new page for the edit form.
+13. Add edit button to store page, with a edit_store page for the edit form and a delete store button.
 
 14. Construct and test methods within Brand class to assign a store to a brand (addStore) and to display all stores assigned to a brand (getStores).
 
@@ -93,7 +93,7 @@ Copyright (c) 2017 Maggie Harrington
 
 16. Create brand page to display all stores that carry a particular brand, including a form to add more stores to a brand.
 
-17. (Optional) Add edit and delete buttons to brand page, with a new page for the edit form.
+17. (Optional) Add edit button to brand page, with a edit_brand page for the edit form and a delete brand button.
 
 18. Export `shoes` and `shoes_test` databases to include in project folder.
 
