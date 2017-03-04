@@ -123,5 +123,12 @@
         return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'stores' => Store::getAll(), 'carried_stores' => $brand->getStores()));
     });
 
+    // edit a brand, routes from brand page to brand edit page
+    $app->get("/brands/{id}/edit", function($id) use ($app) {
+        $brand = Brand::find($id);
+
+        return $app['twig']->render('brand_edit.html.twig', array('brand' => $brand));
+    });
+
     return $app;
 ?>
