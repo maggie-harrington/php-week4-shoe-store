@@ -1,0 +1,26 @@
+{% extends 'template.html.twig' %}
+
+{% block left %}
+    <h3>Edit record for {{ store.getName }}</h3><br>
+
+        <form action='/stores/{{ store.getId }}' method='post'>
+            <div class='form-group'>
+                <input name='_method' value='patch' hidden>
+                <input type='text' name='store_name' class='form-control' value='{{ store.getName }}'>
+            </div>
+
+            <button type='submit' class='btn btn-primary'>Submit Edit</button>
+        </form><br><br><br>
+
+        <h4>Delete {{ store.getName }} from records</h4>
+        <h5>(Cannot be undone!)</h5>
+
+        <form action='/stores/{{ store.getId }}' method='post'>
+            <input name='_method' value='delete' hidden>
+            <button type='submit' class='btn btn-danger'>Delete Store</button>
+        </form>
+{% endblock %}
+
+{% block right %}
+
+{% endblock %}
