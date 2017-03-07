@@ -97,5 +97,10 @@
             return $returned_stores_array;
         }
 
+        function removeStore($store)
+        {
+            $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE brand_id = {$this->getId()} AND store_id = {$store->getId()};"
+            );
+        }
     }
 ?>
