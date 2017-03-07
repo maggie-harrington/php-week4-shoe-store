@@ -152,6 +152,32 @@
             $this->assertEquals([$test_brand2], $result);
         }
 
+        function test_delete_with_store()
+        {
+            // Arrange
+            $brand_name = 'Nike';
+            $test_brand = new Brand($brand_name);
+            $test_brand->save();
+
+            $brand_name2 = 'Adidas';
+            $test_brand2 = new Brand($brand_name2);
+            $test_brand2->save();
+
+            $store_name = 'Road Runner Sports';
+            $test_store = new Store($store_name);
+            $test_store->save();
+            $test_brand->addStore($test_store);
+            $test_brand2->addStore($test_store);
+
+            // Act
+            $test_brand->delete();
+            $result = $test_store->getBrands();
+
+            // Assert
+            $this->assertEquals([$test_brand2], $result);
+        }
+
+
         function test_update()
         {
             // Arrange
