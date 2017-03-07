@@ -96,5 +96,11 @@
             }
             return $returned_brands_array;
         }
+
+        function removeBrand($brand)
+        {
+            $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE brand_id = {$brand->getId()} AND store_id = {$this->getId()};"
+            );
+        }
     }
 ?>
