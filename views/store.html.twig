@@ -6,6 +6,12 @@
     {% if carried_brands is not empty %}
         {% for brand in carried_brands %}
             <h4>{{ brand.getName }}<h4>
+
+            <form action='/stores/{{ store.getId }}/remove_brand' method='post'>
+                <input name='_method' value='delete' hidden>
+                <input id='brand_id' name='brand_id' type='hidden' value='{{ brand.getId }}'>
+                <button type='submit' class='btn btn-xs'>Remove {{ brand.getName }} from {{ store.getName }}</button>
+            </form>
         {% endfor %}
         <br><br>
 
