@@ -114,6 +114,32 @@
             $this->assertEquals([], $result);
         }
 
+        function test_deleteAll_with_brand()
+        {
+            // Arrange
+            $store_name = 'Foot Traffic';
+            $test_store = new Store($store_name);
+            $test_store->save();
+
+            $name2 = 'Road Runner Sports';
+            $test_store2 = new Store($name2);
+            $test_store2->save();
+
+            $brand_name = 'Nike';
+            $test_brand = new Brand($brand_name);
+            $test_brand->save();
+            $test_store->addBrand($test_brand);
+            $test_store2->addBrand($test_brand);
+
+            // Act
+            Store::deleteAll();
+            $result = $test_brand->getStores();
+
+            // Assert
+            $this->assertEquals([], $result);
+        }
+
+
         function test_find()
         {
             // Arrange
