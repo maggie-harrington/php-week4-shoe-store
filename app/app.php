@@ -156,5 +156,14 @@
         return $app['twig']->render('store.html.twig', array('store' => $store, 'brands' => Brand::getAll(), 'carried_brands' => $store->getBrands()));
     });
 
+    // remove an association between a brand and a store, starts on brand page and routes back to brand page
+    $app->delete("/brands/{id}/remove_store", function($id) use ($app) {
+        $brand = Brand::find($id);
+        $store = Store::find($_POST['store_id']);
+        $brand->removeStore($store);
+
+        return $app['twig']->render('brand.html.twig', array('brand' => $brand, 'stores' => Store::getAll(), 'carried_stores' => $brand->getStores()));
+    });
+
     return $app;
 ?>
