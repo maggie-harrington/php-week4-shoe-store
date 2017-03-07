@@ -6,6 +6,12 @@
     {% if carried_stores is not empty %}
         {% for store in carried_stores %}
             <h4>{{ store.getName }}<h4>
+
+            <form action='/brands/{{ brand.getId }}/remove_store' method='post'>
+                <input name='_method' value='delete' hidden>
+                <input id='store_id' name='store_id' type='hidden' value='{{ store.getId }}'>
+                <button type='submit' class='btn btn-xs btn-danger'>Remove {{ store.getName }} from {{ brand.getName }}</button>
+            </form>
         {% endfor %}
         <br><br>
 
@@ -15,7 +21,7 @@
     <br><br><br><br>
 
     <form action='/brands/{{ brand.getId }}/edit' method='get'>
-        <button type='submit' class='btn btn-primary'>Edit brand info</button>
+        <button type='submit' class='btn btn-primary'>Edit brand info or delete</button>
     </form>
 {% endblock %}
 
